@@ -125,19 +125,48 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // Navbar Implementation
+    function setupNavigation() {
+        const logo = document.querySelector("header h1");
+        const dashboardLink = document.querySelector("#sidebar a:nth-child(1)"); // first <a> in sidebar (Dashboard)
+        const content = document.getElementById("content");
+
+        if (!logo || !dashboardLink || !content) return;
+
+        if (logo.dataset.bound === "true") return;
+        logo.dataset.bound = "true";
+        dashboardLink.dataset.bound = "true";
+
+        logo.addEventListener("click", () => {
+            htmx.ajax("GET", "/partials/home.html", { target: "#content", swap: "innerHTML" });
+        });
+
+        dashboardLink.addEventListener("click", (e) => {
+            e.preventDefault();
+            htmx.ajax("GET", "/partials/dashboard.html", { target: "#content", swap: "innerHTML" });
+
+            sidebar.classList.add("translate-x-full");
+            const overlayEl = document.getElementById("sidebar-overlay");
+            if (overlayEl) overlayEl.remove();
+        });
+    }
+
     // Initialize
     setupSidebar();
     setupFilters();
     setupLogin();
+    setupNavigation();
 
     // Reinitialize
     document.body.addEventListener("htmx:afterOnLoad", () => {
         setupSidebar();
         setupFilters();
         setupLogin();
+        setupNavigation();
     });
 
     document.body.addEventListener('htmx:afterSwap', () => {
         setupSidebar();
+        setupNavigation();
     });
 });
