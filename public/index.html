@@ -36,10 +36,33 @@
     </section>
 
     <!-- Filter Bar -->
-    <section class="flex justify-center bg-gray-800 text-white py-3">
-        <div class="flex gap-8">
-            <div>Location</div>
-            <div>Dates</div>
+    <section class="flex justify-center bg-gray-800 text-white py-4">
+        <div class="flex gap-8 bg-gray-900 px-6 py-3 rounded-lg shadow-md w-fit">
+            <!-- Location Dropdown -->
+            <div class="flex flex-col">
+                <label for="location" class="text-sm mb-1 text-gray-400">Location</label>
+                <select id="location" name="location"
+                    class="bg-gray-800 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500">
+                    <option>Asia</option>
+                    <option>Europe</option>
+                    <option>America</option>
+                    <option>Oceania</option>
+                    <option>Africa</option>
+                </select>
+            </div>
+
+            <!-- Dates Dropdown -->
+            <div class="flex flex-col">
+                <label for="dates" class="text-sm mb-1 text-gray-400">Dates</label>
+                <select id="dates" name="dates"
+                    class="bg-gray-800 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500">
+                    <option>This Week</option>
+                    <option>This Month</option>
+                    <option>This Year</option>
+                    <option>2026</option>
+                    <option>2027+</option>
+                </select>
+            </div>
         </div>
     </section>
 
