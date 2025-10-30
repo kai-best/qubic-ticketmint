@@ -30,44 +30,46 @@
     </header>
 
     <!-- Featured Slider -->
-    <section class="relative bg-gray-900 text-white text-center py-20">
+    <section class="relative bg-gray-900 text-white text-center py-20 mb-16">
         <h2 class="text-4xl font-bold mb-4">FEATURED EVENT SLIDER</h2>
         <p class="text-lg opacity-80">Coming Soon...</p>
-    </section>
 
-    <!-- Filter Bar -->
-    <section class="flex justify-center bg-gray-800 text-white py-4">
-        <div class="flex gap-8 bg-gray-900 px-6 py-3 rounded-lg shadow-md w-fit">
-            <!-- Location Dropdown -->
-            <div class="flex flex-col">
-                <label for="location" class="text-sm mb-1 text-gray-400">Location</label>
-                <select id="location" name="location"
-                    class="bg-gray-800 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500">
-                    <option>Asia</option>
-                    <option>Europe</option>
-                    <option>America</option>
-                    <option>Oceania</option>
-                    <option>Africa</option>
-                </select>
-            </div>
+        <!-- Filter Bar -->
+        <div class="absolute border rounded-lg left-1/2 bottom-0 translate-x-[-50%] translate-y-1/2 w-1/2">
+            <div class="flex justify-center text-white">
+                <div class="flex gap-8 bg-gray-900 px-6 py-3 rounded-lg shadow-lg w-full justify-center">
+                    <!-- Location Dropdown -->
+                    <div class="flex flex-col text-left w-1/2">
+                        <label for="location" class="text-sm mb-1 text-gray-400">Location</label>
+                        <select id="location" name="location"
+                            class="bg-gray-800 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500">
+                            <option>Asia</option>
+                            <option>Europe</option>
+                            <option>America</option>
+                            <option>Oceania</option>
+                            <option>Africa</option>
+                        </select>
+                    </div>
 
-            <!-- Dates Dropdown -->
-            <div class="flex flex-col">
-                <label for="dates" class="text-sm mb-1 text-gray-400">Dates</label>
-                <select id="dates" name="dates"
-                    class="bg-gray-800 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500">
-                    <option>This Week</option>
-                    <option>This Month</option>
-                    <option>This Year</option>
-                    <option>2026</option>
-                    <option>2027+</option>
-                </select>
+                    <!-- Dates Dropdown -->
+                    <div class="flex flex-col text-left w-1/2">
+                        <label for="dates" class="text-sm mb-1 text-gray-400">Dates</label>
+                        <select id="dates" name="dates"
+                            class="bg-gray-800 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500">
+                            <option>This Week</option>
+                            <option>This Month</option>
+                            <option>This Year</option>
+                            <option>2026</option>
+                            <option>2027+</option>
+                        </select>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Events Grid -->
-    <main class="grid sm:grid-cols-1 lg:grid-cols-2 gap-6 p-8 flex-grow">
+    <main class="grid sm:grid-cols-1 lg:grid-cols-2 gap-6 px-8 pb-6 flex-grow">
 
         <div class="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-xl transition duration-300">
             <img src="https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2?auto=format&fit=crop&w=800&q=80"
