@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TicketMint</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./js/index.js"></script>
     <script src="https://unpkg.com/htmx.org@1.9.12"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
@@ -26,9 +27,26 @@
             <input type="text" placeholder="Search"
                 class="px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-gray-700" />
             <button class="px-4 py-2 text-white bg-gray-900 rounded-md hover:bg-gray-700">Login</button>
-            <button class="text-2xl">&#9776;</button>
+            <button id="menuBtn" class="text-2xl">&#9776;</button>
         </div>
     </header>
+
+    <!-- Sidebar -->
+    <div id="sidebar"
+        class="fixed top-0 right-0 h-full w-64 bg-white text-gray-900 shadow-2xl transform translate-x-full transition-transform duration-300 z-50">
+        <div class="flex justify-end p-4">
+            <button id="closeBtn" class="text-3xl font-bold text-gray-800 hover:text-gray-500">&times;</button>
+        </div>
+
+        <nav class="flex flex-col items-center gap-6 text-lg font-semibold">
+            <a href="#" class="hover:text-gray-600">Dashboard</a>
+            <a href="#" class="hover:text-gray-600">Events</a>
+            <a href="#" class="hover:text-gray-600">Account</a>
+            <a href="#" class="hover:text-gray-600">THINT Wallet</a>
+            <a href="#" class="hover:text-gray-600">About</a>
+            <a href="#" class="hover:text-gray-600">Contact Us</a>
+        </nav>
+    </div>
 
     <!-- Featured Slider -->
     <section class="relative bg-gray-900 text-white text-center py-20 mb-16">
