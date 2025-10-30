@@ -13,12 +13,12 @@ export function setupNavigation() {
     eventsLink.dataset.bound = "true";
 
     logo.addEventListener("click", () => {
-        htmx.ajax("GET", "/partials/home.html", { target: "#content", swap: "innerHTML" });
+        htmx.ajax("GET", "/views/home.html", { target: "#content", swap: "innerHTML" });
     });
 
     dashboardLink.addEventListener("click", (e) => {
         e.preventDefault();
-        htmx.ajax("GET", "/partials/dashboard.html", {
+        htmx.ajax("GET", "/views/dashboard.html", {
             target: "#content",
             swap: "innerHTML"
         });
@@ -27,7 +27,7 @@ export function setupNavigation() {
 
     eventsLink.addEventListener("click", (e) => {
         e.preventDefault();
-        htmx.ajax("GET", "/partials/events.html", {
+        htmx.ajax("GET", "/views/events.html", {
             target: "#content",
             swap: "innerHTML"
         });
