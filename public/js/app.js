@@ -118,24 +118,23 @@ document.addEventListener("DOMContentLoaded", () => {
             loginBtn.classList.remove("px-4", "py-2", "bg-gray-900", "hover:bg-gray-700");
             loginBtn.classList.add("w-10", "h-10", "rounded-full", "bg-gray-900", "flex", "items-center", "justify-center");
 
-            const content = document.getElementById("content");
-            if (content) {
-                htmx.ajax("GET", "/partials/dashboard.html", { target: "#content", swap: "innerHTML" });
-            }
         });
     }
 
     // Navbar Implementation
     function setupNavigation() {
-        const logo = document.querySelector("header h1");
-        const dashboardLink = document.querySelector("#sidebar a:nth-child(1)"); // first <a> in sidebar (Dashboard)
+        const logo = document.querySelector("header h1"); // TicketMint title
+        const dashboardLink = document.querySelector("#sidebar a:nth-child(1)"); // Dashboard
+        const eventsLink = document.querySelector("#sidebar a:nth-child(2)"); // Events
         const content = document.getElementById("content");
+        const sidebar = document.getElementById("sidebar");
 
-        if (!logo || !dashboardLink || !content) return;
+        if (!logo || !dashboardLink || !eventsLink || !content || !sidebar) return;
 
         if (logo.dataset.bound === "true") return;
         logo.dataset.bound = "true";
         dashboardLink.dataset.bound = "true";
+        eventsLink.dataset.bound = "true";
 
         logo.addEventListener("click", () => {
             htmx.ajax("GET", "/partials/home.html", { target: "#content", swap: "innerHTML" });
@@ -143,12 +142,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
         dashboardLink.addEventListener("click", (e) => {
             e.preventDefault();
-            htmx.ajax("GET", "/partials/dashboard.html", { target: "#content", swap: "innerHTML" });
-
-            sidebar.classList.add("translate-x-full");
-            const overlayEl = document.getElementById("sidebar-overlay");
-            if (overlayEl) overlayEl.remove();
+            htmx.ajax("GET", "/partials/dashboard.html", {
+                target: "#content",
+                swap: "innerHTML"
+            });
+            closeSidebar();
         });
+
+        eventsLink.addEventListener("click", (e) => {
+            e.preventDefault();
+            htmx.ajax("GET", "/partials/events.html", {
+                target: "#content",
+                swap: "innerHTML"
+            });
+            closeSidebar();
+        });
+
+        function closeSidebar() {
+            sidebar.classList.add("translate-x-full");
+            const overlay = document.getElementById("sidebar-overlay");
+            if (overlay) overlay.remove();
+        }
     }
 
     // Initialize
