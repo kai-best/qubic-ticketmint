@@ -20,156 +20,16 @@
 
 <body class="flex flex-col min-h-screen">
     <!-- Header -->
-    <header class="flex items-center justify-between px-8 py-4 bg-white shadow-md">
-        <h1 class="text-3xl font-bold text-gray-900">TicketMint</h1>
+    <div hx-get="/partials/header.html" hx-trigger="load"></div>
 
-        <div class="flex items-center gap-4">
-            <input type="text" placeholder="Search"
-                class="px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-gray-700" />
-            <button class="px-4 py-2 text-white bg-gray-900 rounded-md hover:bg-gray-700">Login</button>
-            <button id="menuBtn" class="text-2xl">&#9776;</button>
-        </div>
-    </header>
-
-    <!-- Sidebar -->
-    <div id="sidebar"
-        class="fixed top-0 right-0 h-full w-64 bg-white text-gray-900 shadow-2xl transform translate-x-full transition-transform duration-300 z-50">
-        <div class="flex justify-end p-4">
-            <button id="closeBtn" class="text-3xl font-bold text-gray-800 hover:text-gray-500">&times;</button>
-        </div>
-
-        <nav class="flex flex-col items-center gap-6 text-lg font-semibold">
-            <a href="#" class="hover:text-gray-600">Dashboard</a>
-            <a href="#" class="hover:text-gray-600">Events</a>
-            <a href="#" class="hover:text-gray-600">Account</a>
-            <a href="#" class="hover:text-gray-600">THINT Wallet</a>
-            <a href="#" class="hover:text-gray-600">About</a>
-            <a href="#" class="hover:text-gray-600">Contact Us</a>
-        </nav>
-    </div>
-
-    <!-- Featured Slider -->
-    <section class="relative bg-gray-900 text-white text-center py-20 mb-16">
-        <h2 class="text-4xl font-bold mb-4">FEATURED EVENT SLIDER</h2>
-        <p class="text-lg opacity-80">Coming Soon...</p>
-
-        <!-- Filter Bar -->
-        <div class="absolute border rounded-lg left-1/2 bottom-0 translate-x-[-50%] translate-y-1/2 w-1/2">
-            <div class="flex justify-center text-white">
-                <div class="flex gap-8 bg-gray-900 px-6 py-3 rounded-lg shadow-lg w-full justify-center">
-                    <!-- Location Dropdown -->
-                    <div class="flex flex-col text-left w-1/2">
-                        <label for="location" class="text-sm mb-1 text-gray-400">Location</label>
-                        <select id="location" name="location"
-                            class="bg-gray-800 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500">
-                            <option value="">All Locations</option>
-                            <option>Asia</option>
-                            <option>Europe</option>
-                            <option>America</option>
-                            <option>Oceania</option>
-                            <option>Africa</option>
-                        </select>
-                    </div>
-
-                    <!-- Dates Dropdown -->
-                    <div class="flex flex-col text-left w-1/2">
-                        <label for="dates" class="text-sm mb-1 text-gray-400">Dates</label>
-                        <select id="dates" name="dates"
-                            class="bg-gray-800 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500">
-                            <option value="">All Dates</option>
-                            <option>This Week</option>
-                            <option>This Month</option>
-                            <option>This Year</option>
-                            <option>2026</option>
-                            <option>2027+</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Events Grid -->
-    <main class="grid sm:grid-cols-1 lg:grid-cols-2 gap-6 px-8 pb-6 flex-grow">
-
-        <div class="event-card bg-white h-fit shadow-md rounded-lg overflow-hidden hover:shadow-xl transition duration-300"
-            data-location="Asia" data-date="2025-10-31">
-            <img src="https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2?auto=format&fit=crop&w=800&q=80"
-                alt="Tokyo Concert" class="w-full h-64 object-cover">
-            <div class="p-4 text-gray-900">
-                <h3 class="text-xl font-bold mb-1">Tokyo Concert</h3>
-                <p class="text-gray-600 flex items-center gap-2">
-                    <i class="fa-solid fa-location-dot text-gray-500"></i> Tokyo, Japan
-                </p>
-                <p class="text-gray-600 flex items-center gap-2 mt-1">
-                    <i class="fa-solid fa-calendar-days text-gray-500"></i> 2025-10-31
-                </p>
-                <button class="mt-3 bg-gray-900 text-white px-4 py-2 rounded-md hover:bg-gray-700 w-full">
-                    View Details
-                </button>
-            </div>
-        </div>
-
-        <div class="event-card bg-white h-fit shadow-md rounded-lg overflow-hidden hover:shadow-xl transition duration-300"
-            data-location="America" data-date="2025-11-05">
-            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80"
-                alt="Tech Conference" class="w-full h-64 object-cover">
-            <div class="p-4 text-gray-900">
-                <h3 class="text-xl font-bold mb-1">Tech Conference</h3>
-                <p class="text-gray-600 flex items-center gap-2">
-                    <i class="fa-solid fa-location-dot text-gray-500"></i> Los Angeles, USA
-                </p>
-                <p class="text-gray-600 flex items-center gap-2 mt-1">
-                    <i class="fa-solid fa-calendar-days text-gray-500"></i> 2025-11-05
-                </p>
-                <button class="mt-3 bg-gray-900 text-white px-4 py-2 rounded-md hover:bg-gray-700 w-full">
-                    View Details
-                </button>
-            </div>
-        </div>
-
-        <div class="event-card bg-white h-fit shadow-md rounded-lg overflow-hidden hover:shadow-xl transition duration-300"
-            data-location="Asia" data-date="2025-11-10">
-            <img src="https://images.unsplash.com/photo-1521334884684-d80222895322?auto=format&fit=crop&w=800&q=80"
-                alt="DJ Party" class="w-full h-64 object-cover">
-            <div class="p-4 text-gray-900">
-                <h3 class="text-xl font-bold mb-1">DJ Party</h3>
-                <p class="text-gray-600 flex items-center gap-2">
-                    <i class="fa-solid fa-location-dot text-gray-500"></i> Singapore
-                </p>
-                <p class="text-gray-600 flex items-center gap-2 mt-1">
-                    <i class="fa-solid fa-calendar-days text-gray-500"></i> 2025-11-10
-                </p>
-                <button class="mt-3 bg-gray-900 text-white px-4 py-2 rounded-md hover:bg-gray-700 w-full">
-                    View Details
-                </button>
-            </div>
-        </div>
-
-        <div class="event-card bg-white h-fit shadow-md rounded-lg overflow-hidden hover:shadow-xl transition duration-300"
-            data-location="Europe" data-date="2025-12-01">
-            <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=800&q=80"
-                alt="EDM Night" class="w-full h-64 object-cover">
-            <div class="p-4 text-gray-900">
-                <h3 class="text-xl font-bold mb-1">EDM Night</h3>
-                <p class="text-gray-600 flex items-center gap-2">
-                    <i class="fa-solid fa-location-dot text-gray-500"></i> London, United Kingdom
-                </p>
-                <p class="text-gray-600 flex items-center gap-2 mt-1">
-                    <i class="fa-solid fa-calendar-days text-gray-500"></i> 2025-12-01
-                </p>
-                <button class="mt-3 bg-gray-900 text-white px-4 py-2 rounded-md hover:bg-gray-700 w-full">
-                    View Details
-                </button>
-            </div>
-        </div>
-
+    <!-- Dynamic content area -->
+    <main id="content" class="flex-grow">
+        <div hx-get="/partials/home.html" hx-trigger="load"></div>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-6 text-center">
-        Footer
-    </footer>
+    <div hx-get="/partials/footer.html" hx-trigger="load"></div>
+
 </body>
 
 </html>
