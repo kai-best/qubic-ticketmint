@@ -1,16 +1,21 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Sidebar toggle
-    const sidebar = document.getElementById('sidebar');
-    const menuBtn = document.getElementById('menuBtn');
-    const closeBtn = document.getElementById('closeBtn');
 
-    menuBtn.addEventListener('click', () => sidebar.classList.remove('translate-x-full'));
-    closeBtn.addEventListener('click', () => sidebar.classList.add('translate-x-full'));
+    function setupSidebar() {
+        const sidebar = document.getElementById('sidebar');
+        const menuBtn = document.getElementById('menuBtn');
+        const closeBtn = document.getElementById('closeBtn');
 
-    // Filtering logic
-    const locationSelect = document.getElementById('location');
-    const dateSelect = document.getElementById('dates');
-    const cards = document.querySelectorAll('.event-card');
+        if (!sidebar || !menuBtn || !closeBtn) return;
+
+        menuBtn.addEventListener('click', () => sidebar.classList.remove('translate-x-full'));
+        closeBtn.addEventListener('click', () => sidebar.classList.add('translate-x-full'));
+    }
+
+    // Run once the page loads
+    document.addEventListener('DOMContentLoaded', setupSidebar);
+
+    // Re-run setup when HTMX loads new content
+    document.body.addEventListener('htmx:afterOnLoad', setupSidebar);
 
     function filterCards() {
         const selectedLocation = locationSelect.value;
