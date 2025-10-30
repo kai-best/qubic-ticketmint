@@ -136,4 +136,8 @@ document.addEventListener("DOMContentLoaded", () => {
         setupFilters();
         setupLogin();
     });
+
+    document.body.addEventListener('htmx:afterSwap', () => {
+        setupSidebar();
+    });
 });
