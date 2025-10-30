@@ -104,13 +104,36 @@ document.addEventListener("DOMContentLoaded", () => {
         dateSelect.addEventListener("change", filterCards);
     }
 
+    // Login MVP Implmentation
+    function setupLogin() {
+        const loginBtn = document.getElementById("loginBtn");
+        if (!loginBtn) return;
+
+        if (loginBtn.dataset.bound === "true") return;
+        loginBtn.dataset.bound = "true";
+
+        loginBtn.addEventListener("click", () => {
+
+            loginBtn.innerHTML = '<i class="fa-solid fa-user text-xl"></i>';
+            loginBtn.classList.remove("px-4", "py-2", "bg-gray-900", "hover:bg-gray-700");
+            loginBtn.classList.add("w-10", "h-10", "rounded-full", "bg-gray-900", "flex", "items-center", "justify-center");
+
+            const content = document.getElementById("content");
+            if (content) {
+                htmx.ajax("GET", "/partials/dashboard.html", { target: "#content", swap: "innerHTML" });
+            }
+        });
+    }
+
     // Initialize
     setupSidebar();
     setupFilters();
+    setupLogin();
 
     // Reinitialize
     document.body.addEventListener("htmx:afterOnLoad", () => {
         setupSidebar();
         setupFilters();
+        setupLogin();
     });
 });
