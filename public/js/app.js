@@ -23,4 +23,16 @@ document.addEventListener("DOMContentLoaded", () => {
         setupSidebar();
         setupNavigation();
     });
+
+    // Wallet Copy Button Logic
+    document.addEventListener("click", (e) => {
+        if (e.target.textContent.trim() === "Copy") {
+            const walletInput = document.getElementById("wallet");
+            if (!walletInput) return;
+            walletInput.select();
+            document.execCommand("copy");
+            e.target.textContent = "Copied!";
+            setTimeout(() => (e.target.textContent = "Copy"), 1500);
+        }
+    });
 });
