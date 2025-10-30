@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    // SideBar Show/Hidden Implementation
+    // Sidebar Show/Hidden Implementation
     function setupSidebar() {
         const sidebar = document.getElementById('sidebar');
         const menuBtn = document.getElementById('menuBtn');
@@ -15,12 +15,11 @@ document.addEventListener("DOMContentLoaded", () => {
         closeBtn.dataset.bound = "true";
 
         function openSidebar() {
-            // Avoid duplicate overlays
+
             if (document.getElementById(overlayId)) return;
 
             sidebar.classList.remove('translate-x-full');
 
-            // Create semi-transparent overlay
             const overlay = document.createElement('div');
             overlay.id = overlayId;
             overlay.className = 'fixed inset-0 bg-black bg-opacity-40 z-40';
@@ -45,57 +44,73 @@ document.addEventListener("DOMContentLoaded", () => {
         closeBtn.addEventListener('click', closeSidebar);
     }
 
-    document.addEventListener('DOMContentLoaded', setupSidebar);
-    document.body.addEventListener('htmx:afterOnLoad', setupSidebar);
-
     // Filter Cards Implementation
-    function filterCards() {
-        const selectedLocation = locationSelect.value;
-        const selectedDate = dateSelect.value;
-        const now = new Date();
+    function setupFilters() {
+        const locationSelect = document.getElementById("location");
+        const dateSelect = document.getElementById("dates");
+        const cards = document.querySelectorAll(".event-card");
 
-        cards.forEach(card => {
-            const eventLocation = card.dataset.location;
-            const eventDate = new Date(card.dataset.date);
+        if (!locationSelect || !dateSelect || cards.length === 0) return;
 
-            const matchesLocation = !selectedLocation || selectedLocation === eventLocation;
-            let matchesDate = false;
+        function filterCards() {
+            const selectedLocation = locationSelect.value;
+            const selectedDate = dateSelect.value;
+            const now = new Date();
 
-            switch (selectedDate) {
-                case "":
-                    matchesDate = true;
-                    break;
-                case "This Week": {
-                    const weekStart = new Date(now);
-                    weekStart.setDate(now.getDate() - now.getDay());
-                    const weekEnd = new Date(weekStart);
-                    weekEnd.setDate(weekStart.getDate() + 6);
-                    matchesDate = eventDate >= weekStart && eventDate <= weekEnd;
-                    break;
+            cards.forEach(card => {
+                const eventLocation = card.dataset.location;
+                const eventDate = new Date(card.dataset.date);
+
+                const matchesLocation = !selectedLocation || selectedLocation === eventLocation;
+                let matchesDate = false;
+
+                switch (selectedDate) {
+                    case "":
+                        matchesDate = true;
+                        break;
+                    case "This Week": {
+                        const weekStart = new Date(now);
+                        weekStart.setDate(now.getDate() - now.getDay());
+                        const weekEnd = new Date(weekStart);
+                        weekEnd.setDate(weekStart.getDate() + 6);
+                        matchesDate = eventDate >= weekStart && eventDate <= weekEnd;
+                        break;
+                    }
+                    case "This Month":
+                        matchesDate =
+                            eventDate.getMonth() === now.getMonth() &&
+                            eventDate.getFullYear() === now.getFullYear();
+                        break;
+                    case "This Year":
+                        matchesDate = eventDate.getFullYear() === now.getFullYear();
+                        break;
+                    case "2026":
+                        matchesDate = eventDate.getFullYear() === 2026;
+                        break;
+                    case "2027+":
+                        matchesDate = eventDate.getFullYear() >= 2027;
+                        break;
                 }
-                case "This Month":
-                    matchesDate = eventDate.getMonth() === now.getMonth() &&
-                        eventDate.getFullYear() === now.getFullYear();
-                    break;
-                case "This Year":
-                    matchesDate = eventDate.getFullYear() === now.getFullYear();
-                    break;
-                case "2026":
-                    matchesDate = eventDate.getFullYear() === 2026;
-                    break;
-                case "2027+":
-                    matchesDate = eventDate.getFullYear() >= 2027;
-                    break;
-            }
 
-            if (matchesLocation && matchesDate) {
-                card.style.display = "block";
-            } else {
-                card.style.display = "none";
-            }
-        });
+                if (matchesLocation && matchesDate) {
+                    card.style.removeProperty("display");
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        }
+
+        locationSelect.addEventListener("change", filterCards);
+        dateSelect.addEventListener("change", filterCards);
     }
 
-    locationSelect.addEventListener("change", filterCards);
-    dateSelect.addEventListener("change", filterCards);
+    // Initialize
+    setupSidebar();
+    setupFilters();
+
+    // Reinitialize
+    document.body.addEventListener("htmx:afterOnLoad", () => {
+        setupSidebar();
+        setupFilters();
+    });
 });
