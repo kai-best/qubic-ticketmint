@@ -4,10 +4,11 @@ export function setupNavigation() {
     const eventsLink = document.querySelector("#sidebar a:nth-child(2)");
     const accountLink = document.querySelector("#sidebar a:nth-child(3)");
     const walletLink = document.querySelector("#sidebar a:nth-child(4)");
+    const aboutLink = document.querySelector("#sidebar a:nth-child(5)");
     const content = document.getElementById("content");
     const sidebar = document.getElementById("sidebar");
 
-    if (!logo || !dashboardLink || !eventsLink || !accountLink || !walletLink || !content || !sidebar) return;
+    if (!logo || !dashboardLink || !eventsLink || !accountLink || !walletLink || !aboutLink || !content || !sidebar) return;
 
     if (logo.dataset.bound === "true") return;
     logo.dataset.bound = "true";
@@ -15,6 +16,7 @@ export function setupNavigation() {
     eventsLink.dataset.bound = "true";
     accountLink.dataset.bound = "true";
     walletLink.dataset.bound = "true";
+    aboutLink.dataset.bound = "true";
 
     logo.addEventListener("click", () => {
         htmx.ajax("GET", "/views/home.html", { target: "#content", swap: "innerHTML" });
@@ -40,7 +42,13 @@ export function setupNavigation() {
 
     walletLink.addEventListener("click", (e) => {
         e.preventDefault();
-        htmx.ajax("GET", "/views/tmintwallet.html", {
+        htmx.ajax("GET", "/views/tmintwallet.html", { target: "#content", swap: "innerHTML" });
+        closeSidebar();
+    });
+
+    aboutLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        htmx.ajax("GET", "/views/aboutus.html", {
             target: "#content",
             swap: "innerHTML"
         });
