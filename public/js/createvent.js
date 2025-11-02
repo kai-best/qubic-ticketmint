@@ -38,3 +38,18 @@ export function setupCreateEvent() {
     htmx.ajax("GET", "/views/events.html", { target: "#content", swap: "innerHTML" });
   });
 }
+
+export function setupCreateTicket() {
+  const btn = document.getElementById("createTicketBtn");
+  if (!btn) return;
+  if (btn.dataset.bound === "true") return;
+  btn.dataset.bound = "true";
+
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    htmx.ajax("GET", "/views/ticket.html", {
+      target: "#content",
+      swap: "innerHTML",
+    });
+  });
+}

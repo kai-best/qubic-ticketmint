@@ -2,9 +2,10 @@ import { setupSidebar } from '/js/sidebar.js';
 import { setupFilters } from '/js/filters.js';
 import { setupLogin } from '/js/login.js';
 import { setupNavigation } from '/js/navbar.js';
-import { setupCreateEvent } from '/js/createvent.js';
+import { setupCreateEvent, setupCreateTicket } from '/js/createvent.js';
 import { setupEventPage } from '/js/event.js';
 import { setupContactForm } from '/js/contact.js';
+import { setupTicketPage } from '/js/ticket.js';
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -15,7 +16,9 @@ document.addEventListener("DOMContentLoaded", () => {
     setupNavigation();
     setupEventPage();
     setupCreateEvent();
+    setupCreateTicket();
     setupContactForm();
+    setupTicketPage();
 
     // Reinitialize
     document.body.addEventListener("htmx:afterOnLoad", () => {
@@ -25,7 +28,9 @@ document.addEventListener("DOMContentLoaded", () => {
         setupNavigation();
         setupEventPage();
         setupCreateEvent();
+        setupCreateTicket();
         setupContactForm();
+        setupTicketPage();
     });
 
     document.body.addEventListener('htmx:afterSwap', () => {
@@ -33,7 +38,9 @@ document.addEventListener("DOMContentLoaded", () => {
         setupNavigation();
         setupEventPage();
         setupCreateEvent();
+        setupCreateTicket();
         setupContactForm();
+        setupTicketPage();
     });
 
     // Wallet Copy Button Logic
