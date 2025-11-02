@@ -2,6 +2,8 @@ import { setupSidebar } from '/js/sidebar.js';
 import { setupFilters } from '/js/filters.js';
 import { setupLogin } from '/js/login.js';
 import { setupNavigation } from '/js/navbar.js';
+import { setupCreateEvent } from '/js/createvent.js';
+import { setupEventPage } from '/js/event.js';
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -10,6 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
     setupFilters();
     setupLogin();
     setupNavigation();
+    setupEventPage();
+    setupCreateEvent();
 
     // Reinitialize
     document.body.addEventListener("htmx:afterOnLoad", () => {
@@ -17,11 +21,15 @@ document.addEventListener("DOMContentLoaded", () => {
         setupFilters();
         setupLogin();
         setupNavigation();
+        setupEventPage();
+        setupCreateEvent();
     });
 
     document.body.addEventListener('htmx:afterSwap', () => {
         setupSidebar();
         setupNavigation();
+        setupEventPage();
+        setupCreateEvent();
     });
 
     // Wallet Copy Button Logic
