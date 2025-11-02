@@ -5,10 +5,11 @@ export function setupNavigation() {
     const accountLink = document.querySelector("#sidebar a:nth-child(3)");
     const walletLink = document.querySelector("#sidebar a:nth-child(4)");
     const aboutLink = document.querySelector("#sidebar a:nth-child(5)");
+    const contactLink = document.querySelector("#sidebar a:nth-child(6)");
     const content = document.getElementById("content");
     const sidebar = document.getElementById("sidebar");
 
-    if (!logo || !dashboardLink || !eventsLink || !accountLink || !walletLink || !aboutLink || !content || !sidebar) return;
+    if (!logo || !dashboardLink || !eventsLink || !accountLink || !walletLink || !aboutLink || !contactLink || !content || !sidebar) return;
 
     if (logo.dataset.bound === "true") return;
     logo.dataset.bound = "true";
@@ -17,6 +18,7 @@ export function setupNavigation() {
     accountLink.dataset.bound = "true";
     walletLink.dataset.bound = "true";
     aboutLink.dataset.bound = "true";
+    contactLink.dataset.bound = "true";
 
     logo.addEventListener("click", () => {
         htmx.ajax("GET", "/views/home.html", { target: "#content", swap: "innerHTML" });
@@ -49,6 +51,15 @@ export function setupNavigation() {
     aboutLink.addEventListener("click", (e) => {
         e.preventDefault();
         htmx.ajax("GET", "/views/aboutus.html", {
+            target: "#content",
+            swap: "innerHTML"
+        });
+        closeSidebar();
+    });
+
+    contactLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        htmx.ajax("GET", "/views/contact.html", {
             target: "#content",
             swap: "innerHTML"
         });

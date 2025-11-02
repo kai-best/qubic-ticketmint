@@ -4,6 +4,7 @@ import { setupLogin } from '/js/login.js';
 import { setupNavigation } from '/js/navbar.js';
 import { setupCreateEvent } from '/js/createvent.js';
 import { setupEventPage } from '/js/event.js';
+import { setupContactForm } from '/js/contact.js';
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -14,6 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setupNavigation();
     setupEventPage();
     setupCreateEvent();
+    setupContactForm();
 
     // Reinitialize
     document.body.addEventListener("htmx:afterOnLoad", () => {
@@ -23,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
         setupNavigation();
         setupEventPage();
         setupCreateEvent();
+        setupContactForm();
     });
 
     document.body.addEventListener('htmx:afterSwap', () => {
@@ -30,6 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
         setupNavigation();
         setupEventPage();
         setupCreateEvent();
+        setupContactForm();
     });
 
     // Wallet Copy Button Logic
