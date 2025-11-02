@@ -1,0 +1,64 @@
+<div class="p-8 font-[Orbitron] w-full text-gray-800">
+  <!-- Header -->
+  <section class="text-center">
+    <h2 class="text-4xl font-bold flex items-center justify-center gap-2">
+      <span>TicketMint Wallet</span>
+    </h2>
+    <p class="text-gray-500 mt-2">
+      Manage your connected Qubic wallet, check balances, and view recent transactions.
+    </p>
+  </section>
+
+  <!-- Wallet Stats -->
+  <div class="grid w-full md:grid-cols-3 gap-6 mt-8 max-w-5xl mx-auto">
+    <div class="bg-white rounded-2xl shadow-md text-center p-6 border border-gray-200">
+      <h3 class="font-semibold text-gray-700">Balance</h3>
+      <p id="walletBalance" class="text-3xl text-gray-900 mt-2">0.00 QUBIC</p>
+    </div>
+    <div class="bg-white rounded-2xl shadow-md text-center p-6 border border-gray-200">
+      <h3 class="font-semibold text-gray-700">Tickets Owned</h3>
+      <p class="text-3xl text-gray-900 mt-2">3</p>
+    </div>
+    <div class="bg-white rounded-2xl shadow-md text-center p-6 border border-gray-200">
+      <h3 class="font-semibold text-gray-700">Last Activity</h3>
+      <p class="text-3xl text-gray-900 mt-2">1d ago</p>
+    </div>
+  </div>
+
+  <!-- Wallet Address -->
+  <div class="bg-white w-full rounded-2xl max-w-5xl shadow-md p-6 mt-10 mx-auto border border-gray-200">
+    <div class="flex justify-between items-center mb-4">
+      <h3 class="font-bold text-lg text-gray-800">Wallet Address</h3>
+      <button id="connectWalletBtn" class="px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-700 transition">
+        Connect Wallet
+      </button>
+    </div>
+    <input id="wallet" class="w-full border rounded-lg p-3 text-gray-700 bg-gray-50" placeholder="WKRFTHTBRQUSKCWAWMZOMIULIXUCNLZWFOAJDPTYLFLZCOBQLCYNBTNCCFLF" readonly />
+    <button id="copyWalletBtn" class="text-blue-600 text-sm mt-2 hover:underline">Copy</button>
+  </div>
+
+  <!-- Actions -->
+  <div class="flex w-full justify-center gap-6 mt-8">
+    <button class="px-8 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-500 transition">Send</button>
+    <button class="px-8 py-3 bg-green-600 text-white rounded-lg hover:bg-green-500 transition">Receive</button>
+  </div>
+
+  <!-- Transactions -->
+  <section class="mt-12 w-full max-w-5xl mx-auto">
+    <h3 class="text-xl font-semibold mb-4 text-gray-800">Recent Transactions</h3>
+    <div class="bg-white rounded-xl shadow-md divide-y border border-gray-200">
+      <div class="p-4 flex justify-between">
+        <span class="font-medium text-gray-700">Sent 0.05 QUBIC</span>
+        <span class="text-gray-500">2 hours ago</span>
+      </div>
+      <div class="p-4 flex justify-between">
+        <span class="font-medium text-gray-700">Received 12 QUBIC</span>
+        <span class="text-gray-500">1 day ago</span>
+      </div>
+      <div class="p-4 flex justify-between">
+        <span class="font-medium text-gray-700">Minted “VIP Ticket #102”</span>
+        <span class="text-gray-500">3 days ago</span>
+      </div>
+    </div>
+  </section>
+</div>
