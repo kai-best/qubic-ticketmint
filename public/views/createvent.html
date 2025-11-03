@@ -1,77 +1,76 @@
-<section class="p-10 font-['Orbitron'] text-gray-800 w-2/3 mx-auto">
-  <h2 class="text-4xl font-bold text-center mb-10">Create New Event</h2>
+<section class="p-10 font-['Orbitron'] text-gray-800 w-full md:w-2/3 mx-auto">
+  <h2 class="text-lg md:text-2xl lg:text-4xl font-bold text-center mb-6 md:mb-10">Create New Event</h2>
 
-  <form id="createEventForm" class="space-y-8">
+  <form id="createEventForm" class="space-y-4 md:space-y-8">
     <!-- Row 1 -->
-    <div class="grid md:grid-cols-2 gap-6">
+    <div class="grid md:grid-cols-2 gap-4 md:gap-6">
       <div>
-        <label class="block text-gray-700 mb-2">Event Name</label>
+        <label class="block text-gray-700 text-sm md:text-base lg:text-lg mb-2">Event Name</label>
         <input type="text" id="eventName" placeholder="Enter event name"
-          class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black outline-none" />
+          class="w-full text-xs md:text-sm lg:text-base p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black outline-none" />
       </div>
       <div>
-        <label class="block text-gray-700 mb-2">Event Date</label>
+        <label class="block text-gray-700 text-sm md:text-base lg:text-lg mb-2">Event Date</label>
         <input type="date" id="eventDate"
-          class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black outline-none" />
+          class="w-full text-xs md:text-sm lg:text-base p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black outline-none" />
       </div>
     </div>
 
-    <div class="grid md:grid-cols-2 gap-6">
+    <div class="grid md:grid-cols-2 gap-4 md:gap-6">
       <div>
-        <label class="block text-gray-700 mb-2">Event Time</label>
+        <label class="block text-gray-700 text-sm md:text-base lg:text-lg mb-2">Event Time</label>
         <input type="time" id="eventTime"
-          class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black outline-none" />
+          class="w-full text-xs md:text-sm lg:text-base p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black outline-none" />
       </div>
       <div>
-        <label class="block text-gray-700 mb-2">Event Location</label>
+        <label class="block text-gray-700 text-sm md:text-base lg:text-lg mb-2">Event Location</label>
         <input type="text" id="eventLocation" placeholder="Enter location"
-          class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black outline-none" />
+          class="w-full text-xs md:text-sm lg:text-base p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black outline-none" />
       </div>
     </div>
 
     <!-- Upload Banner -->
     <div>
-    <label class="block text-gray-700 mb-2">Upload Banner</label>
-    <div
-        id="uploadZone"
-        class="border-2 h-60 flex items-center justify-center border-dashed border-gray-400 rounded-xl p-10 text-center bg-gray-50 hover:bg-gray-100 cursor-pointer transition bg-cover bg-center">
+      <label class="block text-gray-700 text-sm md:text-base lg:text-lg mb-2">Upload Banner</label>
+      <div id="uploadZone"
+        class="border-2 h-48 md:h-64 flex items-center justify-center border-dashed border-gray-400 rounded-xl p-10 text-center bg-gray-50 hover:bg-gray-100 cursor-pointer transition bg-cover bg-center">
         <p id="uploadText" class="text-gray-500 italic">
-        Drag & Drop or Click to Upload
+          Drag & Drop or Click to Upload
         </p>
         <input type="file" id="eventImages" accept="image/*" class="hidden" />
-    </div>
+      </div>
     </div>
 
-    <div class="grid md:grid-cols-2 gap-6">
+    <div class="grid md:grid-cols-2 gap-4 md:gap-6">
       <div>
-        <label class="block text-gray-700 mb-2">Event Price</label>
+        <label class="block text-gray-700 text-sm md:text-base lg:text-lg mb-2">Event Price</label>
         <input type="number" id="eventPrice" placeholder="Enter price"
-          class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black outline-none" />
+          class="w-full text-xs md:text-sm lg:text-base p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black outline-none" />
       </div>
       <div>
-        <label class="block text-gray-700 mb-2">Event Details</label>
+        <label class="block text-gray-700 text-sm md:text-base lg:text-lg mb-2">Event Details</label>
         <input type="text" id="eventDetails" placeholder="VIP access, seating info, etc."
-          class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black outline-none" />
+          class="w-full text-xs md:text-sm lg:text-base p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black outline-none" />
       </div>
     </div>
 
     <!-- Description -->
     <div>
-      <label class="block text-gray-700 mb-2">Description</label>
+      <label class="block text-gray-700 text-sm md:text-base lg:text-lg mb-2">Description</label>
       <textarea id="eventDescription" rows="4" placeholder="Write event description..."
-        class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black outline-none"></textarea>
+        class="w-full text-xs md:text-sm lg:text-base p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black outline-none"></textarea>
     </div>
 
-    <div class="grid md:grid-cols-2 gap-6">
+    <div class="grid md:grid-cols-2 gap-4 md:gap-6">
       <div>
-        <label class="block text-gray-700 mb-2">Quantity</label>
+        <label class="block text-gray-700 text-sm md:text-base lg:text-lg mb-2">Quantity</label>
         <input type="number" id="eventQuantity" placeholder="Number of tickets"
-          class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black outline-none" />
+          class="w-full text-xs md:text-sm lg:text-base p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black outline-none" />
       </div>
       <div>
-        <label class="block text-gray-700 mb-2">Event Category</label>
+        <label class="block text-gray-700 text-sm md:text-base lg:text-lg mb-2">Event Category</label>
         <select id="eventCategory"
-          class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black outline-none">
+          class="w-full text-xs md:text-sm lg:text-base p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black outline-none">
           <option value="">Select Category</option>
           <option>Music</option>
           <option>Sports</option>
@@ -83,14 +82,14 @@
     </div>
 
     <!-- Submit -->
-    <div class="flex justify-center gap-6 pt-8">
+    <div class="flex justify-center gap-4 md:gap-6 pt-8">
       <button type="button" id="cancelBtn"
-        class="px-8 py-3 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition">
+        class="text-xs md:text-sm lg:text-base px-8 py-3 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition">
         Cancel
       </button>
       <button type="submit"
-        class="px-8 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition">
-        Create Event
+        class="text-xs md:text-sm lg:text-base px-8 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition">
+        Create
       </button>
     </div>
   </form>

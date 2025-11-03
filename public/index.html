@@ -18,12 +18,12 @@
     </style>
 </head>
 
-<body class="flex flex-col min-h-screen">
+<body class="flex flex-col min-h-screen w-full">
     <!-- Header -->
     <div hx-get="/views/header.html" hx-trigger="load"></div>
 
     <!-- Dynamic content area -->
-    <main id="content" class="flex flex-col items-center justify-center flex-grow">
+    <main id="content" class="pt-20 flex flex-col items-center justify-center flex-grow">
         <div class="w-full" hx-get="/views/home.html" hx-trigger="load"></div>
     </main>
 
